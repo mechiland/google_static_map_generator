@@ -18,6 +18,7 @@ function lazy_load_img(url, loading_func, loaded_func) {
 function draw_map() {
   params = {}
   params["center"] = $("#cfg_center").val();
+  params["zoom"] = $("#txt_zoom").val();
   params["maptype"] = $("#cfg_maptype").val();
   params["language"] = $("#cfg_language").val();
   params["markers"] = $("#cfg_markers").val();
