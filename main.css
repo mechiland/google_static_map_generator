@@ -1,0 +1,19 @@
+.preview_container {
+  position: relative;
+  display: inline-block;
+  padding: 6px;
+  background-color: #eee;
+  border: 1px solid #f7f7f7;
+}
+
+#map_preview {
+  width: 600px;
+  height: 300px;
+}
+
+.preview_container #loading {
+  position: absolute;
+  display: none;
+  top: 130px;
+  left: 290px;
+}
