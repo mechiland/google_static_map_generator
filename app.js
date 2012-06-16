@@ -1,4 +1,4 @@
-var _prefix = "http://maps.googleapis.com/maps/api/staticmap?sensor=true"
+var _prefix = "http://maps.googleapis.com/maps/api/staticmap?"
 
 function _check_img_load(img, callback) {
   if (img.complete) {
@@ -22,6 +22,7 @@ function draw_map() {
   params["language"] = $("#cfg_language").val();
   params["markers"] = $("#cfg_markers").val();
   params["size"] = $("#cfg_size").val();
+  params["sensor"] = $("#sel_sensor").val();
   styles = []
   $.each($(".input_style"), function(i, el){
     styles.push("style=" + el.value)
@@ -51,7 +52,7 @@ function serialize_style() {
 $(function() {
   $("#btn_generate").click(draw_map)
   $("#btn_add_style").click(function(){
-    $("#styles").append("<div class='style_wrap'><input type='text' class='input_style' value='"+serialize_style()+"'/><button class='del_style'>Del</button></div>")
+    $("#styles").append("<div class='style_wrap'><input type='text' class='input_style' value='"+serialize_style()+"'/><button class='del_style'>X</button></div>")
   })
   $(document).on("click", ".del_style", function(el) {
     $(this).parent().remove();
