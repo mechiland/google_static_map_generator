@@ -7,8 +7,6 @@
 }
 
 #map_preview {
-  width: 600px;
-  height: 300px;
 }
 
 .preview_container #loading {
@@ -16,4 +14,8 @@
   display: none;
   top: 130px;
   left: 290px;
+}
+
+.input_style {
+  width: 400px;
 }

@@ -10,15 +10,96 @@
   <body>
     <h1>Google Static Map Generator</h1> 
     <div class="configs">
-      <label>Center</label>
-      <input type="text" id="cfg_center">
-      <label>maptype</label>
-      <select id="cfg_maptype">
-        <option value="roadmap">roadmap</option>
-        <option value="satellite">satellite</option>
-        <option value="terrain">terrain</option>
-        <option value="hybrid">hybrid</option>
-      </select>
+      <div class="section">
+        <label>Center</label>
+        <input type="text" id="cfg_center" value="Xi'an, China">
+        <label>Markers</label>
+        <input type="text" id="cfg_markers" value="Beijing|Xi'an|Chicago">        
+      </div>
+      
+      <div class="section">
+        <label>size</label>
+        <input type="text" id="cfg_size" value="600x300">
+        <label>maptype</label>
+        <select id="cfg_maptype">
+          <option value="roadmap">roadmap</option>
+          <option value="satellite">satellite</option>
+          <option value="terrain">terrain</option>
+          <option value="hybrid">hybrid</option>
+        </select>
+        <label>language</label>
+        <input type="text" id="cfg_language" value="en">        
+      </div>
+      
+      <div class="section">
+        <label>Styles</label>
+        <div id="styles">
+          
+        </div>
+        <br/>
+        <select id="sel_feature">
+          <option>--feature--</option>
+          <option>administrative</option>
+          <option>administrative.country</option>
+          <option>administrative.land_parcel</option>
+          <option>administrative.locality</option>
+          <option>administrative.neighborhood</option>
+          <option>administrative.province</option>
+          <option>all</option>
+          <option>landscape</option>
+          <option>landscape.man_made</option>
+          <option>landscape.natural</option>
+          <option>poi</option>
+          <option>poi.attraction</option>
+          <option>poi.business</option>
+          <option>poi.government</option>
+          <option>poi.medical</option>
+          <option>poi.park</option>
+          <option>poi.place_of_worship</option>
+          <option>poi.school</option>
+          <option>poi.sports_complex</option>
+          <option>road</option>
+          <option>road.arterial</option>
+          <option>road.highway</option>
+          <option>road.highway.controlled_access</option>
+          <option>road.local</option>
+          <option>transit.line</option>
+          <option>transit.station</option>
+          <option>transit.station.airport</option>
+          <option>transit.station.bus</option>
+          <option>transit.station.rail</option>
+          <option>water</option>
+        </select>
+        <select id="sel_element">
+          <option>--element--</option>
+          <option>all</option>
+          <option>geometry</option>
+          <option>labels</option>
+        </select>
+        <select id="sel_rule">
+          <option>--rule--</option>
+          <option>gamma</option>
+          <option>hue</option>
+          <option>invert_lightness</option>
+          <option>lightness</option>
+          <option>saturation</option>
+          <option>visibility</option>
+        </select>
+        <input id="txt_value" placeholder="value">
+        <!--
+        <select id="sel_boolean">
+          <option>true</option>
+          <option>false</option>
+        </select>
+        <select id="sel_visibility">
+          <option>on</option>
+          <option>off</option>
+          <option>simplifed</option>
+        </select>-->
+        <button id="btn_add_style">Add</button>
+        
+      </div>
+      
       <button id="btn_generate">Generate</button>
     </div>
     
