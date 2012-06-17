@@ -11,43 +11,68 @@
     <h1>Google Static Map Generator</h1> 
     <div class="configs">
       <div class="section">
-        <label>Zoom</label>
-        <input type="text" id="txt_zoom" value="14">
+        <!-- <label>Zoom</label>
+        <input type="text" id="txt_zoom" value="14"> -->
         <label>Center</label>
         <input type="text" id="cfg_center" value="Xi'an, China">
-        <label>Markers</label>
-        <input type="text" id="cfg_markers" value="Beijing|Xi'an|Chicago">        
-      </div>
-      
-      <div class="section">
-        <label>size</label>
-        <input type="text" id="cfg_size" value="600x300">
-        <label>maptype</label>
+        <label>Maptype</label>
         <select id="cfg_maptype">
           <option value="roadmap">roadmap</option>
           <option value="satellite">satellite</option>
           <option value="terrain">terrain</option>
           <option value="hybrid">hybrid</option>
         </select>
-        <label>language</label>
-        <input type="text" id="cfg_language" value="en">        
+        
+        <label>Size</label>
+        <input type="number" id="cfg_width" value="600" min="100" max="700"/>X<input type="number" id="cfg_height" value="300" min="100" max="700"/>
+        
+        <label>Scale</label>
+        <select id="cfg_scale">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        <label>Zoom</label>
+        <input type="number" id="cfg_zoom" min="0" max="20" />
+
+        
+        
+        <label>Language</label>
+        <select id="cfg_language" value="zh-CN">
+          <option value ="en">en</option>
+          <option value ="zh-CN">zh-CN</option>
+        </select>        
       </div>
       
       <div class="section">
-        <label>Styles</label>
+        <p>Markers</p>
+        <div id="markers">
+          
+        </div>
+        <label>City or coordinate</label><input type="text" id="mker_city"/>
+        <label>Color</label><input type="text" id="mker_color" value="red"/>
+        <label>Size</label>
+        <select id="mker_size"> 
+          <option value="mid">mid</option>
+          <option value="tiny">tiny</option>
+          <option value="small">small</option>
+        </select>
+        <button id="btn_add_marker">Add</button>
+      </div>
+      
+      <div class="section">
+        <p>Styles</p>
         <div id="styles">
           
         </div>
-        <br/>
+        <lable>Feature</lable>
         <select id="sel_feature">
-          <option>--feature--</option>
+          <option>all</option>
           <option>administrative</option>
           <option>administrative.country</option>
           <option>administrative.land_parcel</option>
           <option>administrative.locality</option>
           <option>administrative.neighborhood</option>
           <option>administrative.province</option>
-          <option>all</option>
           <option>landscape</option>
           <option>landscape.man_made</option>
           <option>landscape.natural</option>
@@ -72,22 +97,21 @@
           <option>transit.station.rail</option>
           <option>water</option>
         </select>
+        <lable>Element</lable>
         <select id="sel_element">
-          <option>--element--</option>
           <option>all</option>
           <option>geometry</option>
           <option>labels</option>
         </select>
-        <select id="sel_rule">
-          <option>--rule--</option>
-          <option>gamma</option>
-          <option>hue</option>
-          <option>invert_lightness</option>
-          <option>lightness</option>
-          <option>saturation</option>
-          <option>visibility</option>
+        <select id="sel_rule" onChange=set_default_feature() >
+          <option id="gama">gamma (0.01~10.0)</option>
+          <option id="hue">hue (0xRRGGBB)</option>
+          <option id="invert_lightness">invert_lightness (true/false)</option>
+          <option id="lightness">lightness (-100~100)</option>
+          <option id="saturation">saturation (-100~100)</option>
+          <option id="visibility">visibility (on/off/simplified)</option>
         </select>
-        <input id="txt_value" placeholder="value">
+        <input type="text" id="txt_value" placeholder="0.01~10.0" value="1">
         <!--
         <select id="sel_boolean">
           <option>true</option>
@@ -100,7 +124,9 @@
         </select>-->
         <button id="btn_add_style">Add</button>
         
+        
       </div>
+      <br/>
       
       <select id="sel_sensor">
         <option value="false">sensor - false</option>
@@ -111,8 +137,11 @@
     
     <div class="preview_container">
       <div id="loading"><img src="ajax-loader.gif"></div>
-      <img id="map_preview">
+      <img id="map_preview" src="http://maps.googleapis.com/maps/api/staticmap?center=Xi'an%2C+China&maptype=roadmap&language=en&size=600x300&sensor=false&">
     </div>
+    
+    <div id="map_url">http://maps.googleapis.com/maps/api/staticmap?center=Xi'an%2C+China&maptype=roadmap&language=en&size=600x300&sensor=false&</div>
+    
     
     <footer>
       <small>Michael Chen @ 2012</small>
