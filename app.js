@@ -98,7 +98,11 @@ $(function() {
 	});
   $(document).on("click", ".del_style", function(el) {
     $(this).parent().remove();
+  });
+  $(document).on("click", ".del_marker", function(el) {
+    $(this).parent().remove();
   })
+
 })
 
 
